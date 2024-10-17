@@ -1,0 +1,171 @@
+\documentclass[a4paper, 11pt, twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, left=1.5cm, top=2.5cm, text={18cm, 25cm}]{geometry}
+\usepackage{csquotes}
+\usepackage[czech]{babel}
+\usepackage[IL2]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{verbatim}
+\usepackage{blindtext}
+\usepackage{times}
+\usepackage{amsthm, amssymb, amsmath, amsfonts}
+\usepackage{nameref}
+\usepackage{setspace}
+\usepackage{wasysym}
+\usepackage[hidelinks]{hyperref}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definice}[]
+\newtheorem{sentence}{Věta}[]
+
+\author{Adam Múdry\\xmudry01@stud.fit.vutbr.cz}
+
+\begin{document}
+
+  \begin{titlepage}
+    \begin{center}
+      \renewcommand{\baselinestretch}{0.97}
+      \Huge\textsc{Fakulta informačních technologií \\
+        Vysoké učení technické v Brně} \\
+        \vspace{\stretch{0.38}}
+
+        \renewcommand{\baselinestretch}{1.02}
+
+        \LARGE{
+          Typografie a publikování{\,}--{\,}2. projekt \\
+          Sazba dokumentů a matematických výrazů \\
+        }
+        \vspace{\stretch{0.622}
+      }
+      \renewcommand{\baselinestretch}{1}
+    \end{center}
+    {\Large{2021\hfill Adam Múdry (xmudry01)}}
+  \end{titlepage}
+
+  \section*{Úvod}
+  \label{sec:uvod}
+  V této úloze si vyzkoušíme sazbu titulní strany, matematických vzorců, prostředí 
+  a~dalších textových struktur obvyklých pro technicky zaměřené texty 
+  (například rovnice~\eqref{eq:1} nebo Definice~\ref{definicia1} na straně~\pageref{sec:uvod}). 
+  Rovněž si vyzkoušíme pou\-žívání odkazů \verb|\ref| a \verb|\pageref|.
+  
+  Na titulní straně je využito sázení nadpisu podle optického středu s využitím zlatého řezu. 
+  Tento postup byl probírán na přednášce. Dále je použito odřádkování se zadanou relativní 
+  velikostí 0.4 em a 0.3 em.
+  
+  V případě, že budete potřebovat vyjádřit matematickou konstrukci nebo symbol a~nebude se 
+  Vám dařit jej nalézt v samotném {\LaTeX}u, doporučuji prostudovat možnosti ba\-líku maker {\AmS}-{\LaTeX}.
+
+  \section{Matematický text}
+
+  Nejprve se podíváme na sázení matematických symbolů a~výrazů v plynulém textu včetně sazby 
+  definic a vět s vy\-užitím balíku \texttt{amsthm}. Rovněž použijeme poznámku pod čarou s použitím 
+  příkazu \verb|\footnote|. Někdy je vhodné použít konstrukci \verb|\mbox{}|, která říká, že text nemá být zalomen.
+
+  \begin{definition}
+    \label{definicia1}
+    Rozšířený zásobníkový automat \emph{(RZA) je definován jako sedmice tvaru $A = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$, kde:}
+    \renewcommand\labelitemi{$\bullet$}
+    \begin{itemize}
+      \item $Q$ \emph{je konečná množina} vnitřních (řídicích) stavů,
+      \item $\Sigma$ \emph{je konečná} vstupní abeceda,
+      \item $\Gamma$ \emph{je konečná} zásobníková abeceda,
+      \item $\delta$ \emph{je} přechodová funkce $Q \times(\Sigma\cup\{\epsilon\})\times\Gamma^{\ast}$ $\rightarrow$ $2^{{Q \times\Gamma}^{\ast}}$,
+      \item $q_0 \in Q$ \emph{je} počáteční stav, $Z_0 \in \Gamma$ \emph{je} startovací symbol zásobníku a $F \subseteq Q$ \emph{je množina} koncových stavů.
+    \end{itemize}
+  \end{definition}
+
+  Nechť \emph{$P = (Q, \Sigma, \Gamma, \delta, q_0, Z_0, F)$} je rozšířený zásobníkový automat. 
+  \emph{Konfigurací} nazveme trojici \emph{$(q, w, \alpha) \in Q \times \Sigma^{\ast} \times \Gamma^{\ast}$},
+  kde $q$ je aktuální stav vnitřního řízení, $w$ je dosud nezpracovaná část vstupního řetězce
+  a~$\alpha = {Z_{i_1}}{Z_{i_2}}\dots{Z_{i_k}}$ je obsah zásobníku\footnote[1]{${Z_{i_1}}$ je vrchol zásobníku}.
+
+  \subsection{Podsekce obsahující větu a odkaz}
+
+  \begin{definition}
+    \label{definicia2}
+    Řetězec $w$ nad abecedou $\Sigma$ je přijat RZA \emph{$A$~jestliže $(q_0, w, Z_0) \overset{\ast}{\underset{A}{\vdash}} (q_F, \epsilon, \gamma)$  
+    pro nějaké $\gamma \in \Gamma^{\ast}$ a $q_F \in F$. Množinu $L(A) = \{w \mid w$ je přijat RZA $A\} \subseteq$ $\Sigma^{\ast}$~nazýváme} jazyk přijímaný RZA $A$.
+  \end{definition}
+
+  Nyní si vyzkoušíme sazbu vět a důkazů opět s použitím balíku \texttt{amsthm}.
+
+  \begin{sentence}
+    \emph{Třída jazyků, které jsou přijímány ZA, odpovídá} bezkontextovým jazykům.
+  \end{sentence}
+
+  \begin{proof}
+    V důkaze vyjdeme z Definice~\ref{definicia1} a~\ref{definicia2}.
+  \end{proof}
+
+  \section{Rovnice a odkazy}
+
+  Složitější matematické formulace sázíme mimo plynulý text.
+  Lze umístit několik výrazů na jeden řádek, ale pak je třeba tyto vhodně oddělit, 
+  například příkazem \verb|\quad|.
+  
+  $$
+    \sqrt[i]{x_i^3} \text{\quad kde } x_i \text{ je } i\text{-té sudé číslo splňujúci\quad} x_i^{x_i^{i^2}+ 2} \leq y_i^{x_i^4}
+  $$
+
+  V rovnici \eqref{eq:1} jsou využity tři typy závorek s různou explicitně definovanou velikostí.
+  
+  \begin{eqnarray}
+      \label{eq:1}
+      x & = & \Bigg[\bigg\{\Big[a+b\Big]\ast c\bigg\}^d \oplus 2\Bigg]^{3/2}\\
+      y & = & \lim\limits_{x \to \infty} \frac{\frac{1}{\log_{10} x}}{sin^2x+cos^2x} \nonumber
+  \end{eqnarray}
+
+  V této větě vidíme, jak vypadá implicitní vysázení limity $\lim_{n \to \infty} f(n)$ 
+  v normálním odstavci textu. Podobně je to i s dalšími symboly jako $\prod_{i=1}^{n} 2^i$ či $\bigcap_{A\in \mathcal{B}}A$. 
+  V~pří\-padě vzorců $\lim\limits_{n \to \infty} f(n)$ a $\overset{n}{\underset{i=1}\prod} 2^i$ 
+  jsme si vynutili méně úspornou sazbu příkazem \verb|\limits|.
+
+  \begin{equation}
+    \int_{b}^{a} g(x)dx\ =\ - \int\limits_{a}^{b} f(x) dx
+  \end{equation}
+
+  \section{Matice}
+
+  Pro sázení matic se velmi často používá prostředí \texttt{array} a závorky (\verb|\left|, \verb|\right|).
+
+  \begin{equation*}
+    \left(\!
+      \begin{array}{ccc}
+        a - b  & \widehat{\xi + \omega} & \pi \\[0.3em]
+        \vec{\mathbf{a}} & \overleftrightarrow{AC} & \hat{\beta}
+      \end{array}
+    \!\right)= 1 \Longleftrightarrow \mathcal{Q} =\mathbb{R}
+  \end{equation*}
+
+  \begin{equation*}
+    \textbf{A}
+    \ = \
+    \begin{array}{||cccc||}
+      \ a_{11} & a_{12} & \cdots & a_{1n}\ \\
+      \ a_{21} & a_{22} & \cdots & a_{2n}\ \\
+      \ \vdots & \vdots & \ddots & \vdots\ \\
+      \ a_{m1} & a_{m2} & \cdots & a_{mn}\
+    \end{array}
+    \ = \
+    \begin{array}{|cc|}
+      \ t & u \ \\
+      \ v & w \
+    \end{array}\ =tw \minus uv
+  \end{equation*}
+
+  Prostředí \texttt{array} lze úspešně využít i jinde.
+
+    \begin{equation*}
+      \begin{pmatrix}
+          n \\
+          k 
+      \end{pmatrix}
+      =
+      \begin{cases}
+        \ \hfil 0 & \text{pro } k < 0 \text{ nebo } k > n \\
+        \ \frac{n!}{k!(n-k)!} & \text{pro } 0\leq k\leq n\text{.} 
+      \end{cases}
+    \end{equation*}
+
+\end{document}

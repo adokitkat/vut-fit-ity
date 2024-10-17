@@ -1,0 +1,72 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper, left=1.5cm, top=2.5cm, text={18cm, 25cm}]{geometry}
+\usepackage{csquotes}
+\usepackage[czech,slovak]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{nameref}
+\usepackage{times}
+\usepackage[hidelinks,unicode,pdfpagelabels]{hyperref}
+\usepackage{url}
+\urlstyle{same}
+\hbadness=9999999
+\tolerance=9999999
+
+\author{Adam Múdry\\xmudry01@stud.fit.vutbr.cz}
+\title{Typografie a~publikování{\,}--{\,}4. projekt}
+
+\begin{document}
+
+  \begin{titlepage}
+    \begin{center}
+      \Huge\textsc{Vysoké učení technické v~Brně \\}
+      \huge\textsc{Fakulta informačních technologií \\}
+        
+        \vspace{\stretch{0.382}}
+
+        \LARGE{Typografie a~publikování{\,}--{\,}4.~projekt \\}
+        \Huge{Bibliografické citácie\\}
+
+        \vspace{\stretch{0.618}
+      }
+    \end{center}
+    {\Large{{\selectlanguage{czech}\today} \hfill Adam Múdry}}
+  \end{titlepage}
+
+  \section{Typografia}
+
+  \subsection{Čo je to?}
+
+  Typografia sa zaoberá problematikou grafickej úpravy tlačených dokumentov s~použitím vhodných rezov písma a~usporiadania jednotlivých znakov a~odsekov vo vhodnej, pre čitateľa zrozumiteľnej a~esteticky akceptovateľnej forme. Zaoberá sa tiež dizajnom písma, výberom farebnej schémy dokumentov, ilustrácií, zalamovaním textu do~odsekov až po výber papiera pre tlač.~\cite{wiki_sk_typography}
+
+  \section{{\TeX} a~\LaTeX}
+
+  {\textbf \TeX} je sádzací systém a~zároveň program od Donalda E. Knutha, ktorý vznikol kvôli jeho potrebe (a~nespokojnosti) s~tým, že nemohol dobre tlačiť matematické skripá pre študentov, uvádza článok \cite{simecek2013programujte}.\\
+
+  \noindent Tento systém bol však pomerne zložitý a~práve kvôli tomu vznikol {\textbf \LaTeX}, ktorý na {\TeX}e stavia a~zjednodušuje ho. Históriu {\TeX}u, {\LaTeX}u a~to ako ich používať môžeme nájsť na webe \cite{martinek2010latex}.\\
+
+  \noindent V~dnešnej dobe sa pre typografické účely používa primárne {\LaTeX}. {\LaTeX} dokumenty sú textové dokumenty zmiešané spolu so špeciálnymi príkazmi, ktoré vie spracovať ich prekladač. Viac informácii o~{\LaTeX}e sa môžete dočítat v~\cite{rybicka2003latex}. {\LaTeX} dokumenty vieme upravovať na vlastných PC, ale aj v~online editoroch ako je napríklad \textbf{OverLeaf}, či iných ktoré sú spomenuté v~práci \cite{sokol2012onlinelatexeditor}.\\
+
+  \noindent {\LaTeX} sa stal obľúbeným nástojom mnohých kvôli svojej flexibilite a~možnosťou relatívne jednoducho a~konzistentne zapisovať matematické výrazy, avšak napr. nadmerné používanie týchto vymožeností môže zhoršiť čitateľnosť dokumentu alebo pomýliť čitateľa, na čo upozorňuje aj autor v~článku \cite{hwang1995writing}.
+
+  \subsection{Porovnanie TeXu a~HTML}
+
+  {\LaTeX} a~\textbf{HTML} sú podobné v~oblastiach štrukturálneho znázornenia informácií \,--\, oba systémy značia časti textu, avšak rezdiel medzi nimi je taký, že HTML dokument zostáva textový súbor, zatiaľ čo dokument v~{\LaTeX}u je preložený do iného formátu, ako je napr. \textbf{PDF}. Viac nájdete v~\cite{goossens1999latex}.\\
+
+  \noindent Porovnanie {\TeX}u a~značkovacieho jazyka \textbf{Markdown} môžete nájsť v~článku \cite{novotny2020tex}.
+
+  \section{Bibliografia a~citácie}
+
+  V~{\LaTeX}ovom dokumente môžeme použiť \textbf{bibliografiu} a~\textbf{bibliografické citácie}, pričom citovanie podlieha citačným normám. Pre stručný popis viz. \cite{mazac2010diplomka}. Citovaie a~parafrázovanie v~odborých a~vedeckých prácach pri preberaní informácii z~iných prac či zdrojov je súčasťou etiky a~kultúry ich písania \,--\, čo je opísané v~článku \cite{olsak2014tex}.
+
+  \newpage
+
+  \bibliographystyle{czechiso}
+  \renewcommand{\refname}{Literatúra}
+  \bibliography{bibliografia}
+
+\end{document}
